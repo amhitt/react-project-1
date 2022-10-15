@@ -16,13 +16,13 @@ const Profile = () => {
       <div>
         My posts
       </div>
-      <div>
-        New post
-      </div>
+      {/* <div>
+        <input> </input> 
+        <button> Add post </button>
+      </div> */}
       <MyPosts/>
     </div>
     )
-
 }
 
 export default Profile
