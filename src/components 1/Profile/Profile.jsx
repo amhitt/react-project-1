@@ -5,16 +5,11 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 const Profile = () => {
-    return (
+   return (
       <div className={classes.content}>
+
         <ProfileInfo/>
-
-        <div>
-          My posts
-        </div>
-
         <MyPosts/>
-
 
       </div>
     )
