@@ -3,14 +3,9 @@ import classes from './MyPosts.module.css'
 import Post from "./Post/Post"
 
 
-const MyPosts = () => {
-    const postsData = [
-        {id:'1', message:"Hi, I`ve just learnt about props!", likes:'1'},
-        {id:'2', message:"Please like my posts and subscribe to this account", likes:'2'},
-        {id:'3', message:"Wazzzaaaaapppp", likes:'0'},
-    ]
+const MyPosts = (props) => {
 
-    const postsElements = postsData.map(e => <Post id={e.id} message={e.message} likes={e.likes}/>)
+    const postsElements = props.postsData.map(e => <Post id={e.id} message={e.message} likes={e.likes}/>)
 
     return (
         <div className={classes.postsBlock}>
