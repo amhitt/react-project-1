@@ -4,6 +4,7 @@
 }
 
 .dialog {
+    display: flex;
     background-color: rgb(157, 154, 190);
     padding: 10px;
     margin: 1px;
