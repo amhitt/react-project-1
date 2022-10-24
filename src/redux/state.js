@@ -1,4 +1,6 @@
-import { rerenderEntireTree } from "../render"
+let rerenderEntireTree = () => {
+    console.log('state changed')
+}
 
 const state = {
     profilePage: {
@@ -22,8 +24,9 @@ const state = {
             {id: 6, message: 'Bye'},
             {id: 7, message: 'Bye'},
             {id: 8, message: 'Bye'},
-    ],
-    dialogsData: [  
+        ],
+        newMessageText: '',
+        dialogsData: [  
             {id: 1, name: 'Edmon', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK2nG24AYDm6FOEC7jIfgubO96GbRso2Xshu1f8abSYQ&s'},
             {id: 2, name: 'Sasha'},
             {id: 3, name: 'Nastya'},
@@ -50,4 +53,21 @@ export let updateNewPostText = (newText) => {
     rerenderEntireTree(state)
 }
 
+export let sendNewMessage = (yourMessage) => {
+    let newMessage = {
+        id: 8,
+        message: yourMessage
+    }
+    state.dialogsPage.messagesData.push(newMessage)
+    rerenderEntireTree(state);
+}
+
+export const  updateMessage = (newLetter) => {
+    state.dialogsPage.newMessageText = newLetter
+    rerenderEntireTree(state)
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer
+}
 export default state
