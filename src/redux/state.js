@@ -1,8 +1,6 @@
-let rerenderEntireTree = () => {
-    console.log('state changed')
-}
 
-const state = {
+const store = {
+     _state: {
     profilePage: {
             postsData: [
                 {id: 1, message:"Hi, I`ve just learnt about props!", likes: 1},
@@ -10,8 +8,8 @@ const state = {
                 {id: 3, message:"Wazzzaaaaapppp", likes: 0},
                 {id: 4, message:"Wazzzaaaaapppp", likes: 0},
                 {id: 5, message:"Wazzzaaaaapppp", likes: 0},
-                ],
-            newPostText: ''
+            ],
+         newPostText: ''
         },
 
     dialogsPage: {
@@ -32,42 +30,46 @@ const state = {
             {id: 3, name: 'Nastya'},
             {id: 4, name: 'Mamochka'},
             {id: 5, name: 'Lika'}
-    ]
+        ]
     }
 
-}
-
-export let addPost = () => {
+    },
+    getState () {
+        return this._state
+    },
+     _callSubscriber ()  {
+    console.log('state changed')
+    },
+    addPost () {
     let newPost = {
         id: 6,
-        message: state.profilePage.newPostText,
+        message: this._state.profilePage.newPostText,
         likes: 0
     }
-    state.profilePage.postsData.unshift(newPost)
-    state.profilePage.newPostText = ''
-    rerenderEntireTree(state);
-}
-
-export let updateNewPostText = (newText) => {
-    state.profilePage.newPostText = newText
-    rerenderEntireTree(state)
-}
-
-export let sendNewMessage = (yourMessage) => {
-    let newMessage = {
-        id: 8,
-        message: yourMessage
+    this._state.profilePage.postsData.unshift(newPost)
+    this._state.profilePage.newPostText = ''
+    this._callSubscriber(this._state);
+    },
+    updateNewPostText (newText)  {
+        this._state.profilePage.newPostText = newText
+        this._callSubscriber(this._state)
+    },
+    sendNewMessage (yourMessage) {
+        let newMessage = {
+            id: 8,
+            message: yourMessage
+        }
+        this._state.dialogsPage.messagesData.push(newMessage)
+        this._callSubscriber(this._state);
+    },
+    updateMessage (newLetter) {
+        this._state.dialogsPage.newMessageText = newLetter
+        this._callSubscriber(this._state)
+    },
+    subscribe (observer) {
+        this._callSubscriber = observer
     }
-    state.dialogsPage.messagesData.push(newMessage)
-    rerenderEntireTree(state);
 }
 
-export const  updateMessage = (newLetter) => {
-    state.dialogsPage.newMessageText = newLetter
-    rerenderEntireTree(state)
-}
 
-export const subscribe = (observer) => {
-    rerenderEntireTree = observer
-}
-export default state
+export default store;
