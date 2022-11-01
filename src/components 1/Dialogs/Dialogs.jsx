@@ -9,18 +9,21 @@ import { onMessageChangeActionCreator, postNewMessageActionCreator } from '../..
 
 const Dialogs = (props) => {
 
-const dialogElements = props.dialogsPage.dialogsData.map((e) => <DialogItem name={e.name} id={e.id} photo={e.photo}/>)
-const messageElements = props.dialogsPage.messagesData.map( (e) => <Message message={e.message} id={e.id}/>)
+const dialogElements = props.dialogsData.map((e) => <DialogItem name={e.name} id={e.id} photo={e.photo}/>)
+const messageElements = props.messagesData.map( (e) => <Message message={e.message} id={e.id}/>)
 
 let newMessage = React.createRef()
 
 let postNewMessage = () => {
-    props.dispatch(postNewMessageActionCreator())
+    props.postNewMessage()
+    // props.dispatch(postNewMessageActionCreator())
 }
 
 let onMessageChange = () => {
     let text = newMessage.current.value;
-    props.dispatch(onMessageChangeActionCreator(text))
+    props.onMessageChange(text)
+    
+    // props.dispatch(onMessageChangeActionCreator(text))
 }
 
     return (
