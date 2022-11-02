@@ -16,14 +16,11 @@ let newMessage = React.createRef()
 
 let postNewMessage = () => {
     props.postNewMessage()
-    // props.dispatch(postNewMessageActionCreator())
 }
 
 let onMessageChange = () => {
     let text = newMessage.current.value;
     props.onMessageChange(text)
-    
-    // props.dispatch(onMessageChangeActionCreator(text))
 }
 
     return (
