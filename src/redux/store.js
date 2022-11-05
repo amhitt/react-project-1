@@ -1,5 +1,5 @@
-import dialogsReducer from "./dialogs.reduce";
-import profileReducer from "./profile.reduce";
+import dialogsReducer from "./dialogs.reduceк";
+import profileReducer from "./profile.reducer";
 
  export let addPostActionCreator = () => ({type: ADD_POST})
  export let onPostChangeActionCreator = (text) => ({  

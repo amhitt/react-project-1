@@ -1,0 +1,47 @@
+.container {
+    width: 1000px;
+    height: 100px;
+    background-color: #B19DFF;
+    margin-top: 5px ;
+}
+
+.basic {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 100px
+
+}
+
+.photo  {
+    margin: auto;
+}
+
+.photo img {
+    width: 80px;
+    height: 80px;
+}
+
+
+.description {
+    margin-top: 10px;
+}
+
+.button {   
+    margin: auto;
+}
+
+.btn {
+    outline: none; 
+    border: 0;
+    background: transparent;
+    font-size: 18px;
+}
+
+.name {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.status {
+    color: rgb(74, 74, 74);
+}
