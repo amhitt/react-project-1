@@ -1,5 +1,5 @@
 .container {
-    width: 1000px;
+    width: 1200px;
     height: 100px;
     background-color: #B19DFF;
     margin-top: 5px ;
@@ -44,4 +44,20 @@
 
 .status {
     color: rgb(74, 74, 74);
+}
+
+.pagination {
+    display: flex;
+    justify-content: end;
+    margin-right: 20px;
+    font-size: 18px;
+    color:rgb(74, 74, 74)
+}
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pagination span {
+    margin-right: 3px;
 }
