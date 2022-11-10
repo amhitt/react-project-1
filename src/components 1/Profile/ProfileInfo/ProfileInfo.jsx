@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './ProfileInfo.module.css'
 
 
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
   return (
     <div>
       <div>
@@ -10,6 +10,7 @@ const ProfileInfo = () => {
       </div>
       <div className={classes.descriptionBlock}>
         ava+description
+        <div><h1>Hi, my name is {props.profile.fullName}</h1></div>
       </div>
       
  
