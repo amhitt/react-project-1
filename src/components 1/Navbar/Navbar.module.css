@@ -8,12 +8,15 @@
 
  .item {
 
-  text-decoration: none;
   color: rgb(135, 108, 179);
 }
 
- .activeLink {
+ .item a.active {
     color: white;
     text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+  color:rgb(135, 108, 179)
+}
