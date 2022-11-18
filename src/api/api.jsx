@@ -16,17 +16,25 @@ export const usersAPI = {
         return response.data;
       });
   },
-};
+  showUserProfile(userId) {
+    return instanse.get(`profile/` + userId);
+  },
 
-export const followAPI = {
   followUser(user) {
     return instanse.post(`/follow/${user}`, {}).then((response) => {
       return response.data;
     });
   },
+
   unfollowUser(user) {
     return instanse.delete(`follow/${user}`).then((response) => {
       return response.data;
     });
+  },
+};
+
+export const authAPI = {
+  myProfile() {
+    return instanse.get(`auth/me`);
   },
 };
