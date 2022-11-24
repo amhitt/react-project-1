@@ -8,18 +8,18 @@ const Navbar = () => {
   return (
     <nav className={classes.nav}>
         <div className={classes.item}> 
-          <NavLink to='/profile'>Profile</NavLink>
+          <NavLink to='/profile' activeClassName={classes.active}>Profile</NavLink>
          </div>
-        <div> 
-          <NavLink to='/dialogs' className={`${classes.item} ${classes.active}`}>Messages</NavLink> </div>
-        <div> 
-          <NavLink to='/news' className={classes.item}>News</NavLink> </div>
-        <div> 
-          <NavLink to='/music' className={classes.item}>Music</NavLink> </div>
-        <div>
-           <NavLink to='/settings' className={classes.item}>Settings</NavLink> </div>
-        <div>
-           <NavLink to='/users' className={classes.item}>Users</NavLink> </div>
+        <div className={classes.item} > 
+          <NavLink to='/dialogs' activeClassName={classes.active}>Messages</NavLink> </div>
+        <div className={classes.item}> 
+          <NavLink to='/news'  activeClassName={classes.active}>News</NavLink> </div>
+        <div className={classes.item}> 
+          <NavLink to='/music'  activeClassName={classes.active}>Music</NavLink> </div>
+        <div className={classes.item}>
+           <NavLink to='/settings'  activeClassName={classes.active}>Settings</NavLink> </div>
+        <div className={classes.item}>
+           <NavLink to='/users'  activeClassName={classes.active}>Users</NavLink> </div>
       </nav>
   )
 }

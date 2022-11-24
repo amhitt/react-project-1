@@ -17,7 +17,8 @@ export const usersAPI = {
       });
   },
   showUserProfile(userId) {
-    return instanse.get(`profile/` + userId);
+    console.warn('Obsolete method. Use profileAPI object')
+    return  profileAPI.showUserProfile(userId);
   },
 
   followUser(user) {
@@ -32,6 +33,25 @@ export const usersAPI = {
     });
   },
 };
+
+
+export const profileAPI = {
+  showUserProfile(userId) {
+    return instanse.get(`profile/` + userId);
+  },
+
+  getStatus(userId) {
+    return instanse.get(`profile/status/` + userId).then((response) => {
+      return response.data;
+    })
+  },
+  
+  updateStatus(status) {
+    return instanse.put(`profile/status/`, { status: status }).then((response) => {
+      return response.data;
+    })
+  },
+}
 
 export const authAPI = {
   myProfile() {
